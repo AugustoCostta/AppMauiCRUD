@@ -30,14 +30,11 @@ namespace AppMauiBTG
         var mauiWin = (Window)s;
         if (mauiWin.Handler?.PlatformView is Microsoft.UI.Xaml.Window nativeWin)
         {
-            // Associa o evento Closed do XAML Window nativo
             nativeWin.Closed += (sender, args) =>
             {
-                // Fecha o app completamente
                 Environment.Exit(0);
             };
 
-            // Maximiza a janela
             var hwnd = WinRT.Interop.WindowNative.GetWindowHandle(nativeWin);
             var windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hwnd);
             var appWindow = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowId);
