@@ -1,0 +1,29 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:AppMauiBTG.ViewModels"
+             x:Class="AppMauiBTG.Views.CustomerDetailPage"
+             x:DataType="viewmodels:CustomerDetailViewModel"
+             Title="Detalhes do Cliente">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="20">
+            <Label Text="Name:" />
+            <Entry Text="{Binding Customer.Name}" Placeholder="Enter Name" />
+
+            <Label Text="Lastname:" />
+            <Entry Text="{Binding Customer.Lastname}" Placeholder="Enter Lastname" />
+
+            <Label Text="Age:" />
+            <Entry Text="{Binding Customer.Age}" Placeholder="Enter Age" Keyboard="Numeric" TextChanged="AgeEntry_TextChanged"/>
+            <Label Text="Address:" />
+            <Entry Text="{Binding Customer.Address}" Placeholder="Enter Address" />
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                <Button Grid.Column="0" Text="Salvar" Command="{Binding SaveCustomerCommand}" />
+                <Button Grid.Column="1" Text="Cancelar" Command="{Binding CancelCommand}" BackgroundColor="Red" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
+
